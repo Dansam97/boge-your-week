@@ -31,6 +31,10 @@ def validated_text() -> str:
         raise ValueError("entry text must not be only white space")
     if "\n" in TEXT or "\r" in TEXT:
         raise ValueError("entry text must be exactly one line")
+    if TEXT != TEXT.strip():
+        raise ValueError("entry text must not carry edge white space")
+    if "  " in TEXT:
+        raise ValueError("entry text must not waste characters on double spaces")
     return TEXT
 
 
